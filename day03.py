@@ -35,7 +35,6 @@ def one_line_sum(line_idx: int, line: str, symbol_locations: list[set[int]]) -> 
     return one_line
 
 def gear_ratio(lines: list[str], line_idx: int, idx: int) -> int:
-    print("asterisk: line=", line_idx, "idx=", idx)
     (first_gear, second_gear) = (0, 0)
     # check previous line
     if line_idx > 0:
