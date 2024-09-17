@@ -22,7 +22,19 @@ def total_pts(cards: list[Card]) -> int:
         if won: result += 2 ** (won - 1)
     return result
 
+def total_cards(cards: list[Card]) -> int:
+    copies = [1] * len(cards)
+    for idx, card in enumerate(cards):
+        won = len(card.win.intersection(card.nos))
+        for i in range(idx + 1, idx + 1 + won):
+
+            if i >= len(cards) : break
+
+            copies[i] += copies[idx]
+    return sum(copies)
+
 if __name__ == "__main__":
     # cards = open_txt("test.txt")
     cards = open_txt("day04.txt")
     print("Part 1: ", total_pts(cards))
+    print("Part 2: ", total_cards(cards))
